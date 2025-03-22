@@ -1,6 +1,7 @@
 import React from "react";
 import { FaHeartbeat } from "react-icons/fa";
 import { BsFillEmojiHeartEyesFill, BsFillBox2HeartFill } from "react-icons/bs";
+import Button from "../Button";
 
 const Neurology = () => {
   const services = [
@@ -62,9 +63,7 @@ const Neurology = () => {
         </div>
 
         {/* Button */}
-        <button className="mt-6 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-transform transform hover:scale-105">
-          Learn More
-        </button>
+        <Button text="Read More"/>
       </div>
     </div>
   );

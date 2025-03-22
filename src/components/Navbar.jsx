@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
+import Button from "./Button";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const userProfile = null; // Change this to an object when the user is logged in
 
   return (
     <div className="mb-20">
@@ -20,19 +22,34 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6 text-lg">
-            <Link to="/" className="hover:text-blue-600">Home</Link>
-            <Link to="/about" className="hover:text-blue-600">About</Link>
-            <Link to="/explore" className="hover:text-blue-600">Explore</Link>
-            <Link to="/contact" className="hover:text-blue-600">Contact Us</Link>
+            {["Home", "About", "Doctors","Explore", "Contact Us"].map((item, index) => (
+              <Link
+                key={index}
+                to={`/${item.toLowerCase().replace(" ", "-")}`}
+                className="relative hover:text-blue-600 after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-blue-600 after:bottom-0 after:left-1/2 after:transition-all after:duration-300 hover:after:w-full hover:after:left-0"
+              >
+                {item}
+              </Link>
+            ))}
           </div>
 
-          {/* Appointment Button */}
-          <Link
-            to="#"
-            className="hidden md:block bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-lg shadow-md hover:from-blue-600 hover:to-purple-700 transition duration-300"
-          >
-            Make an Appointment
-          </Link>
+          {/* Appointment Button (Desktop Only) */}
+          <div className="hidden md:flex mt-2">
+            {userProfile ? (
+              <Link>
+                <Button text="Make an Appointment" />
+              </Link>
+            ) : (
+              <div className="flex gap-2">
+                <Link to="/login">
+                  <Button text="Login" />
+                </Link>
+                <Link to="/sign-up">
+                  <Button text="Signup" />
+                </Link>
+              </div>
+            )}
+          </div>
 
           {/* Mobile Menu Button */}
           <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
@@ -43,29 +60,42 @@ const Navbar = () => {
 
       {/* Mobile Sidebar */}
       {isOpen && (
-        <div className="fixed top-0 left-0 w-64 h-full bg-white shadow-lg z-50 p-5 md:hidden flex flex-col">
-          <button className="self-end mb-5" onClick={() => setIsOpen(false)}>
-            <FaTimes size={28} />
-          </button>
-          <Link to="/" className="py-2" onClick={() => setIsOpen(false)}>
-            Home
-          </Link>
-          <Link to="/about" className="py-2" onClick={() => setIsOpen(false)}>
-            About
-          </Link>
-          <Link to="/explore" className="py-2" onClick={() => setIsOpen(false)}>
-            Explore
-          </Link>
-          <Link to="/contact" className="py-2" onClick={() => setIsOpen(false)}>
-            Contact Us
-          </Link>
-          <Link
-            to="#"
-            className="mt-5 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-lg shadow-md hover:from-blue-600 hover:to-purple-700 transition duration-300 text-center"
-            onClick={() => setIsOpen(false)}
-          >
-            Make an Appointment
-          </Link>
+        <div className="fixed top-14 left-0 w-64 h-full bg-white shadow-lg z-50 p-5 md:hidden flex flex-col items-center">
+          <div>
+            {/* <button className="self-end mb-5" onClick={() => setIsOpen(false)}>
+              <FaTimes size={28} />
+            </button> */}
+
+            {/* Mobile Navigation Links */}
+            {["Home", "About","Doctors", "Explore", "Contact Us"].map((item, index) => (
+              <Link
+                key={index}
+                to={`/${item.toLowerCase().replace(" ", "")}`}
+                className="relative text-xl text-center block py-2 hover:text-blue-600 after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-blue-600 after:bottom-0 after:left-1/2 after:transition-all after:duration-300 hover:after:w-full hover:after:left-0"
+                onClick={() => setIsOpen(false)}
+              >
+                {item}
+              </Link>
+            ))}
+          </div>
+
+          {/* Mobile Buttons (Bottom Placement) */}
+          <div className="">
+            {userProfile ? (
+              <Link>
+                <Button text="Make an Appointment" />
+              </Link>
+            ) : (
+              <div className="flex mt-3 gap-2">
+                <Link to="/login">
+                  <Button text="Login" />
+                </Link>
+                <Link to="/sign-up">
+                  <Button text="Sign up" />
+                </Link>
+              </div>
+            )}
+          </div>
         </div>
       )}
     </div>

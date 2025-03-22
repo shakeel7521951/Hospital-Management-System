@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../Button";
 
 const Portfolio = () => {
   const portfolioItems = [
@@ -55,9 +56,7 @@ const Portfolio = () => {
                 Our dedicated team ensures quality and effective treatment in {item.category.toLowerCase()}.
               </p>
               <div className="mt-4">
-                <button className="w-fit bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105">
-                  Learn More
-                </button>
+              <Button text="Read More"/>
               </div>
             </div>
           </div>

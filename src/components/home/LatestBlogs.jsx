@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../Button";
 
 const blogPosts = [
   {
@@ -35,7 +36,7 @@ const LatestBlogs = () => {
         <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
           Latest from Our Health Blog
         </h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto text-center">
+        <p className="text-lg text-gray-600 max-w-4xl mx-auto text-center">
           Stay informed with expert healthcare tips, wellness advice, and the
           latest updates on medical treatments. Learn how to book hassle-free
           doctor appointments, get preventive care insights, and manage your
@@ -79,9 +80,7 @@ const LatestBlogs = () => {
 
       {/* More News Button */}
       <div className="text-center mt-12">
-        <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105">
-          More News
-        </button>
+       <Button text='Read More' />
       </div>
     </div>
   );

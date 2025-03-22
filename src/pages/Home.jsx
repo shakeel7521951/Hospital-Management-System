@@ -9,6 +9,7 @@ import Drabout from '../components/home/Drabout';
 import MRI from '../components/home/MRI';
 import Cardiology from '../components/home/Cardiology';
 import Adil from './Adil';
+import Gallery from '../components/home/Gallery';
 
 const Home = () => {
   return (
@@ -23,6 +24,7 @@ const Home = () => {
         <MRI/>
         <Adil/>
         <Cardiology />
+        <Gallery />
     </div>
   )
 }
