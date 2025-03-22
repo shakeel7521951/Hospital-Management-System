@@ -18,12 +18,12 @@ const Home = () => {
         <LatestBlogs />
         <About />
         <Portfolio />
-        <Neurology />
-        <Emergancy />
+        {/* <Neurology /> */}
+        {/* <Emergancy /> */}
         <Drabout />
-        <MRI/>
-        <Adil/>
-        <Cardiology />
+        {/* <MRI/> */}
+        {/* <Adil/> */}
+        {/* <Cardiology /> */}
         <Gallery />
     </div>
   )

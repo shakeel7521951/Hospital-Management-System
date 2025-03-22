@@ -64,7 +64,7 @@ const FlickityCarousel = () => {
       {carouselData.map((item, index) => (
         <div
           key={index}
-          className="carousel-cell w-full h-[90vh] flex items-center justify-center bg-cover bg-center shadow-lg mx-2"
+          className="carousel-cell w-full h-[70vh] md:h-[90vh] flex items-center justify-center bg-cover bg-center shadow-lg mx-2"
           style={{ backgroundImage: `url(${item.image})` }}
         >
           <div className="bg-[#000000be] bg-opacity-50 p-6 text-white text-center w-full h-full flex flex-col justify-center items-center">

@@ -70,7 +70,7 @@ const Navbar = () => {
             {["Home", "About","Doctors", "Explore", "Contact Us"].map((item, index) => (
               <Link
                 key={index}
-                to={`/${item.toLowerCase().replace(" ", "")}`}
+                to={`/${item.toLowerCase().replace(" ", "-")}`}
                 className="relative text-xl text-center block py-2 hover:text-blue-600 after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-blue-600 after:bottom-0 after:left-1/2 after:transition-all after:duration-300 hover:after:w-full hover:after:left-0"
                 onClick={() => setIsOpen(false)}
               >
