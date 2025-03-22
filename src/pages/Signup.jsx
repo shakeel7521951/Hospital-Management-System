@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaUser, FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 
 const SignupForm = () => {
   const [name, setName] = useState("");
@@ -30,38 +30,45 @@ const SignupForm = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-96">
-        <h2 className="text-2xl font-bold text-center mb-4">Sign Up</h2>
+    <div className="flex justify-center items-center min-h-screen md:py-10">
+      <div className="bg-white shadow-2xl rounded-lg p-8 w-96">
+        <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">Sign Up</h2>
         <form onSubmit={signup}>
-          <div className="mb-3">
-            <label className="block text-gray-700">Name</label>
-            <input
-              type="text"
-              className="w-full p-2 border rounded focus:shadow-md focus:shadow-blue-400 focus:outline-none"
-              placeholder="Enter your name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <label className="block text-gray-700">Email</label>
-            <input
-              type="email"
-              className="w-full p-2 border rounded focus:shadow-md focus:shadow-blue-400 focus:outline-none"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-          <div className="mb-3 relative">
-            <label className="block text-gray-700">Password</label>
+          <div className="mb-4 relative">
+            <label className="block text-gray-700 font-medium">Name</label>
             <div className="relative">
+              <FaUser className="absolute left-3 top-3 text-gray-500" />
+              <input
+                type="text"
+                className="w-full p-2 pl-10 border rounded-lg focus:shadow-md focus:shadow-blue-400 focus:outline-none"
+                placeholder="Enter your name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </div>
+          </div>
+          <div className="mb-4 relative">
+            <label className="block text-gray-700 font-medium">Email</label>
+            <div className="relative">
+              <FaEnvelope className="absolute left-3 top-3 text-gray-500" />
+              <input
+                type="email"
+                className="w-full p-2 pl-10 border rounded-lg focus:shadow-md focus:shadow-blue-400 focus:outline-none"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+          </div>
+          <div className="mb-4 relative">
+            <label className="block text-gray-700 font-medium">Password</label>
+            <div className="relative">
+              <FaLock className="absolute left-3 top-3 text-gray-500" />
               <input
                 type={showPassword ? "text" : "password"}
-                className="w-full p-2 border rounded pr-10 focus:shadow-md focus:shadow-blue-400 focus:outline-none"
+                className="w-full p-2 pl-10 pr-10 border rounded-lg focus:shadow-md focus:shadow-blue-400 focus:outline-none"
                 placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -76,12 +83,13 @@ const SignupForm = () => {
               </button>
             </div>
           </div>
-          <div className="mb-3 relative">
-            <label className="block text-gray-700">Confirm Password</label>
+          <div className="mb-4 relative">
+            <label className="block text-gray-700 font-medium">Confirm Password</label>
             <div className="relative">
+              <FaLock className="absolute left-3 top-3 text-gray-500" />
               <input
                 type={showConfirmPassword ? "text" : "password"}
-                className="w-full p-2 border rounded pr-10 focus:shadow-md focus:shadow-blue-400 focus:outline-none"
+                className="w-full p-2 pl-10 pr-10 border rounded-lg focus:shadow-md focus:shadow-blue-400 focus:outline-none"
                 placeholder="Confirm your password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
@@ -96,15 +104,12 @@ const SignupForm = () => {
               </button>
             </div>
           </div>
-          <div className="flex justify-between items-center mb-3">
-            <a href="#" className="text-blue-600 text-sm">Forgot password?</a>
-          </div>
-          <button type="submit" className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700 transition">
+          <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition-all">
             Sign Up
           </button>
         </form>
-        <p className="text-center mt-3">
-          Already have an account? <a href="/login" className="text-blue-600">Login</a>
+        <p className="text-center mt-4 text-gray-600">
+          Already have an account? <a href="/login" className="text-blue-500 font-medium hover:underline">Login</a>
         </p>
       </div>
     </div>
